@@ -1,0 +1,16 @@
+# secrets — jangan pernah commit
+*.pem
+*.key
+.env
+**/.env
+*.credentials.json
+.claude.json
+fcc-server_key.pem
+
+# local / OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# tool output
+.local/share/opencode/tool-output/

@@ -1,0 +1,13 @@
+[Unit]
+Description=Free Claude Code server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+# Ganti <USER> dan path fcc-server sesuai VM-mu
+ExecStart=/home/<USER>/.local/bin/fcc-server
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
