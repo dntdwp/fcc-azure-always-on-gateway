@@ -38,3 +38,7 @@ claude --model anthropic/nvidia_nim/nvidia/nemotron-3-super-120b-a12b
 * Model bayar via OpenRouter (misal Claude Fable) butuh top up, error khas: `402 Upstream provider OPENROUTER ... only afford 800`
 
 Detail langkah: `docs/setup.md`.
+
+## Credit
+
+Gateway memakai [free-claude-code](https://github.com/Alishahryar1/free-claude-code) oleh Alishahryar1 (MIT). Repo ini hanya dokumentasi setup pribadi multi-device, bukan fork/afliasi resmi.
