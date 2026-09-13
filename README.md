@@ -37,7 +37,22 @@ claude --model anthropic/nvidia_nim/nvidia/nemotron-3-super-120b-a12b
 * Varian `:free` / `openrouter/free` untuk darurat saldo 0 (rate-limit)
 * Model bayar via OpenRouter (misal Claude Fable) butuh top up, error khas: `402 Upstream provider OPENROUTER ... only afford 800`
 
-Detail langkah: `docs/setup.md`.
+Detail langkah: `docs/setup.md`. Health check cepat: `scripts/check-health.ps1 -FccHost <TAILSCALE_FCC_IP>`.
+
+## Troubleshooting
+
+* `localhost:8082 refused` → tunnel SSH mati, jalankan ulang `ssh -L 8082:localhost:8082`
+* `ping` timeout tapi Admin `Connected` → device Tailscale offline, ON-kan lagi sampai `Connected`
+* `claude` minta login → set env dulu di shell yang sama, pilih API key `Yes`, jangan `logout` setelah set env
+* Warning dua key → pakai satu saja (`ANTHROPIC_API_KEY`), hapus `ANTHROPIC_AUTH_TOKEN`
+* `402 ... only afford 800` → saldo OpenRouter habis, top up atau pindah ke `nvidia_nim/...` / `:free`
+* `Apply: Failed to fetch` → edit `.env` via SSH + `sudo systemctl restart fcc`
+
+## Cost
+
+* Azure Student $100 credit, VM hemat `B2ats_v2`, IP Static Standard, tanpa LB/backup
+* Pasang budget alert di Cost Management, matikan reusable Tailscale link setelah teman join
+* Token AI terpisah dari Azure: NIM (jatah bulanan), OpenRouter/OpenAI (pay-as-you-go, tanpa reset 5-jam)
 
 ## Credit
 
